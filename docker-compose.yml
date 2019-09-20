@@ -1,0 +1,53 @@
+version: '2'
+
+volumes:
+  postgres_data: {}
+  backend_staticfiles: {}
+  backend_mediafiles: {}
+
+services:
+  postgres:
+    image: postgres:10-alpine
+    ports:
+      - 8002:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init.sh:/docker-entrypoint-initdb.d/init.sh
+    restart: always
+    env_file: .env
+
+  backend:
+    build:
+      context: ./backend
+    volumes:
+      - backend_staticfiles:/staticfiles/
+      - backend_mediafiles:/mediafiles/
+    command: /start_prod.sh
+    entrypoint: /entrypoint.sh
+    restart: always
+    env_file: .env
+    depends_on:
+      - postgres
+
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    ports:
+      - 8001:80
+    volumes:
+      - backend_staticfiles:/staticfiles/
+      - backend_mediafiles:/mediafiles/
+    restart: always
+    depends_on:
+      - backend
+      - notifier
+
+  backup:
+    image: prodrigestivill/postgres-backup-local
+    volumes:
+      - ./DUMP:/backups/
+    restart: always
+    env_file: .env
+    depends_on:
+      - postgres

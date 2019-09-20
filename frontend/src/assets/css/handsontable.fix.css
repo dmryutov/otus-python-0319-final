@@ -1,0 +1,30 @@
+.handsontable-fix {
+    margin-top: 15px;
+
+    height: auto !important;
+    width: 100% !important;
+    overflow: visible !important;
+}
+.handsontable-fix tbody tr td {
+    height: 25px !important;
+}
+.handsontable-fix tbody tr .btn {
+    margin: 2px;
+    padding: 0 5px;
+}
+.handsontable-fix .autocompleteEditor {
+    height: auto !important;
+    width: auto !important;
+}
+.handsontable-fix .wtHolder {
+    height: auto !important;
+    width: 100% !important;
+}
+.handsontable-fix .autocompleteEditor .htCore,
+.handsontable-fix .autocompleteEditor .wtHider,
+.handsontable-fix .autocompleteEditor .wtSpreader {
+    width: auto !important;
+}
+#hot-display-license-info {
+    display: none !important;
+}

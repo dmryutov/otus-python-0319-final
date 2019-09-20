@@ -1,0 +1,6 @@
+export const STL_RESIZE_DATA = 'STL_RESIZE_DATA';
+export const STL_UPDATE_DATA = 'STL_UPDATE_DATA';
+export const STL_CLEAR_DATA = 'STL_CLEAR_DATA';
+
+export const STL_CALCULATE = 'STL_CALCULATE';
+export const STL_EXPORT = 'STL_EXPORT';

@@ -1,0 +1,14 @@
+Django==2.2.4
+coverage==4.5.4
+django-cors-headers==3.0.2
+djangorestframework==3.10.2
+djangorestframework_simplejwt==4.3.0
+fbprophet==0.5
+gunicorn==19.9.0
+numpy==1.16.4
+openpyxl==2.6.2
+pandas==0.24.2
+prince==0.6.3
+psycopg2==2.8.3
+stldecompose==0.0.5
+xlrd==1.2.0
