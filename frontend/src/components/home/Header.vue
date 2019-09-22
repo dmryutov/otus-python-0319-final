@@ -96,7 +96,7 @@ export default {
          * Redirect to logout page
          */
         logout() {
-            this.$store.dispatch(userTypes.LOGOUT);
+            this.$store.commit(userTypes.LOGOUT);
         },
     },
 };
